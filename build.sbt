@@ -7,7 +7,10 @@ licenses := Seq("MIT" -> url("http://opensource.org/licenses/MIT"))
 
 enablePlugins(LibisabellePlugin)
 moduleName := name.value
-isabelleVersions := List("2016", "2016-1")
+isabelleVersions ~= {
+  case Seq() => List(Version.Stable("2017"), Version.Stable("2018"), Version.Stable("2019-RC0"))
+  case ver => ver
+}
 isabelleSessions in Compile := List("Multi_Isabelle")
 
 pomExtra := (
