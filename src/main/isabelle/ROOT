@@ -1,3 +1,4 @@
 session Multi_Isabelle = Pure +
   theories
     Multi_Isabelle
+    Multi_Isabelle_Test
