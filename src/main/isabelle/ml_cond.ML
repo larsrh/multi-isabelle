@@ -11,7 +11,10 @@ end
 
 structure ML_Cond: ML_COND = struct
 
-val isabelle_version = getenv_strict "ISABELLE_VERSION"
+val isabelle_version =
+  case try getenv_strict "ISABELLE_IDENTIFIER" of
+    SOME id => unprefix "Isabelle" id
+  | NONE => getenv_strict "ISABELLE_VERSION"
 
 type pattern = {wildcard: string, negate: bool}
 
